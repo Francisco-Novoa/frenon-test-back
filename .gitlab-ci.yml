@@ -1,0 +1,33 @@
+# there are 3 stages, 
+# install that creates installs the dependencies and saves the artifacts, 
+# lint that runs the linters,
+# and test that runs the tests of the server
+
+stages:
+    - install
+    - lint
+    - test
+
+install:
+    stage: install
+    image: mhart/alpine-node
+    script:
+        - npm ci
+    artifacts:
+        name: "artifacts"
+        untracked: true
+        expire_in: 30 mins 
+        paths:
+            - node_modules 
+
+lint:
+    image: mhart/alpine-node
+    stage: lint
+    script:       
+        - npm run eslint
+
+test:
+    image: mhart/alpine-node
+    stage: test
+    script:
+        - npm run test
