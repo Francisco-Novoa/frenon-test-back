@@ -6,8 +6,11 @@
   "scripts": {
     "test": "cross-env NODE_ENV=test && jest",
     "dev": " cross-env NODE_ENV=development && nodemon server.js",
-    "start":"cross-env NODE_ENV=development && node server.js",
-    "migrate": "node ./bin/migrate.js"
+    "start": "cross-env NODE_ENV=development && node server.js",
+    "migrate": "node ./bin/migrate.js",
+    "eslint":"eslint .",
+    "populate":"node ./bin/populate.js",
+    "ready":"npm run migrate && npm run populate"
   },
   "keywords": [],
   "author": "",
@@ -26,7 +29,7 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
-    "eslint": "^7.3.1",
+    "eslint": "^7.4.0",
     "jest": "^26.1.0",
     "nodemon": "^2.0.4"
   }

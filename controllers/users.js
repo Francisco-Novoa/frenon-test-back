@@ -1,13 +1,16 @@
+"use strict"
+
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
-const { SECRET } = require("../utils/config")
+const config = require("../utils/config")
 const { info, error } = require("../utils/logger")
-
 const usersRouter = require("express").Router()
-db = require("../database/database")
+const db = require("../database/database")
 
 usersRouter.get("/", (request, response) => {
-    db.Users.findAll({ attributes: ["id", 'username', "createdAt"] })
+    db.Users.findAll({
+        attributes: ["id", 'username', "createdAt"]
+    })
         .then((users) => {
             return response.json(JSON.stringify(users))
         })
@@ -53,7 +56,7 @@ usersRouter.post("/", async (request, response) => {
                 username: user.username,
                 id: user._id,
             }
-            const token = await jwt.sign(preToken, SECRET)
+            const token = await jwt.sign(preToken, config.SECRET)
             info(`user "${user.username}" saved to database`)
             response.status(201).send({ token, username: user.username })
         })
@@ -96,8 +99,8 @@ usersRouter.put("/:id", async (request, response) => {
                 })
                 //returns onlny safe fields
                 .then(user => {
-                    const {id, username, createdAt,updatedAt} = user.dataValues
-                    return response.json({id, username, createdAt,updatedAt})
+                    const { id, username, createdAt, updatedAt } = user.dataValues
+                    return response.json({ id, username, createdAt, updatedAt })
                 })
         })
         .catch((err) => {

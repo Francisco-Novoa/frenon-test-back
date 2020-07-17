@@ -12,7 +12,7 @@ const requestLogger = (request, response, next) => {
     next()
 }
 
-const errorHandler = (err, request, response) => {
+const errorHandler = (err, request, response, next) => {
 
     if (err.name === 'CastError') {
         return response.status(400).send({ error: 'malformatted id' })

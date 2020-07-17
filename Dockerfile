@@ -14,7 +14,6 @@ RUN npm install
 COPY . .
 
 #exposes port 3001 outside the container
-
 EXPOSE 3001
 
 CMD npm start
