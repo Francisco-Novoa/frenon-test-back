@@ -3,7 +3,8 @@
 ##### Qué es esto.
 - Simple servidor de Node.js, hecho utilizando Express, utilizando Sequelize como ORM se conecta a una base de datos de PostgresQL, tiene unos pocos tests creados en Jest que revisan que la coneccion a la base de datos esta funcional. 
 - Implementa protocolo REST para "Crear, Leer, Actualizar y Borrar" (CRUD en inglés), una vez hecho un usuario se entrega un token jwt, si bien un middleware para autenticar está implementado en los archivos, todas las rutas están disponibles en este momento, sin validación.
-- La aplicación se encuentra Dockerizada.     
+- La aplicación se encuentra Dockerizada.
+- la aplicación esta en una pipeline de Gitlab donde se revisa el linting.
  
 ##### Cómo Ejecutarla.
  
