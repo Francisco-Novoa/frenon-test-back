@@ -1,0 +1,26 @@
+version: "3.7"
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports: 
+      - '5432:5432'
+
+  frenontestback:
+    build:
+      context: .
+    environment:
+      DB_SCHEMA: postgres
+      DB_USER: postgres
+      DB_PASSWORD: password
+      TEST_BD_SCHEMA: test
+      DB_HOST: postgres
+      SECRET: "hola_soy_una_password_muy_mala"
+      PORT: 3001
+    depends_on:
+      - postgres
+    ports:
+      - '3001:3001'
+        
