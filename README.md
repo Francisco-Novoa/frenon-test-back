@@ -23,6 +23,9 @@
 - Método "post", ruta"/" debe tener un header "Content-Type:application/json" y un "body" conteniendo {"username":"nuevo_username", "password":"nueva_password"}, username y password deben ser de al menos 8 caracteres de largo. crea un nuevo usuario con los valores de "body"
 - Método "put", ruta "/id" debe tener un header "Content-Type:application/json" y un "body" conteniendo {"username":"nuevo_username", "password":"nueva_password"}, username y password deben ser de al menos 8 caracteres de largo. modifica el usuario con primary key "id" reemplazando sus valores por los de "body
 - Método "delete, ruta "/id" borra el usuario con primary key "id"
- 
+
+
+ link a gitlab https://gitlab.com/Francisco-Novoa/frenontest_p2
+ link a github https://github.com/Francisco-Novoa/frenon-test-back
  
 
